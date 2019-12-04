@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ctb.iml" filepath="$PROJECT_DIR$/ctb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ctb-access-token/ctb-access-token.iml" filepath="$PROJECT_DIR$/ctb-access-token/ctb-access-token.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ctb-auth-service/ctb-auth-service.iml" filepath="$PROJECT_DIR$/ctb-auth-service/ctb-auth-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ctb-commons/ctb-commons.iml" filepath="$PROJECT_DIR$/ctb-commons/ctb-commons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ctb-config/ctb-config.iml" filepath="$PROJECT_DIR$/ctb-config/ctb-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ctb-data-persistence/ctb-data-persistence.iml" filepath="$PROJECT_DIR$/ctb-data-persistence/ctb-data-persistence.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ctb-framework/ctb-framework.iml" filepath="$PROJECT_DIR$/ctb-framework/ctb-framework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ctb-gateway/ctb-gateway.iml" filepath="$PROJECT_DIR$/ctb-gateway/ctb-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ctb-mobile/ctb-mobile.iml" filepath="$PROJECT_DIR$/ctb-mobile/ctb-mobile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ctb-monitor/ctb-monitor.iml" filepath="$PROJECT_DIR$/ctb-monitor/ctb-monitor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ctb-pharmacy/ctb-pharmacy.iml" filepath="$PROJECT_DIR$/ctb-pharmacy/ctb-pharmacy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ctb-platform/ctb-platform.iml" filepath="$PROJECT_DIR$/ctb-platform/ctb-platform.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ctb-registry/ctb-registry.iml" filepath="$PROJECT_DIR$/ctb-registry/ctb-registry.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ctb-resources/ctb-resources.iml" filepath="$PROJECT_DIR$/ctb-resources/ctb-resources.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ctb-review-prescription/ctb-review-prescription.iml" filepath="$PROJECT_DIR$/ctb-review-prescription/ctb-review-prescription.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ctb-sync-his-data/ctb-sync-his-data.iml" filepath="$PROJECT_DIR$/ctb-sync-his-data/ctb-sync-his-data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ctb-zipkin/ctb-zipkin.iml" filepath="$PROJECT_DIR$/ctb-zipkin/ctb-zipkin.iml" />
+    </modules>
+  </component>
+</project>

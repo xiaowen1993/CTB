@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="ctb-data-persistence" />
+        <module name="ctb-review-prescription" />
+        <module name="ctb-platform" />
+        <module name="ctb-monitor" />
+        <module name="ctb-pharmacy" />
+        <module name="ctb-auth-service" />
+        <module name="ctb-registry" />
+        <module name="ctb-config" />
+        <module name="ctb-sync-his-data" />
+        <module name="ctb-framework" />
+        <module name="ctb-zipkin" />
+        <module name="ctb-resources" />
+        <module name="ctb-mobile" />
+        <module name="ctb-commons" />
+        <module name="ctb-access-token" />
+        <module name="ctb-gateway" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ctb" target="1.8" />
+      <module name="ctb-access-token" target="1.8" />
+      <module name="ctb-auth-service" target="1.8" />
+      <module name="ctb-commons" target="1.8" />
+      <module name="ctb-config" target="1.8" />
+      <module name="ctb-data-persistence" target="1.8" />
+      <module name="ctb-framework" target="1.8" />
+      <module name="ctb-gateway" target="1.8" />
+      <module name="ctb-mobile" target="1.8" />
+      <module name="ctb-monitor" target="1.8" />
+      <module name="ctb-pharmacy" target="1.8" />
+      <module name="ctb-platform" target="1.8" />
+      <module name="ctb-registry" target="1.8" />
+      <module name="ctb-resources" target="1.8" />
+      <module name="ctb-review-prescription" target="1.8" />
+      <module name="ctb-sync-his-data" target="1.8" />
+      <module name="ctb-zipkin" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

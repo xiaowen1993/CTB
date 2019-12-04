@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ctb.resources.mapper.biz.PaySettingsMapper">
+  <resultMap id="BaseResultMap" type="com.ctb.commons.entity.PaySettings">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="APP_ID" jdbcType="VARCHAR" property="appId" />
+    <result column="APP_SECRET" jdbcType="VARCHAR" property="appSecret" />
+    <result column="MCH_ID" jdbcType="VARCHAR" property="mchId" />
+    <result column="PAY_KEY" jdbcType="VARCHAR" property="payKey" />
+    <result column="CERTIFICATE_PATH" jdbcType="VARCHAR" property="certificatePath" />
+    <result column="CP" jdbcType="VARCHAR" property="cp" />
+    <result column="CT" jdbcType="TIMESTAMP" property="ct" />
+    <result column="EP" jdbcType="VARCHAR" property="ep" />
+    <result column="ET" jdbcType="TIMESTAMP" property="et" />
+  </resultMap>
+  
+  <sql id="All_Column">
+		ID, APP_ID, APP_SECRET, MCH_ID, PAY_KEY, CERTIFICATE_PATH, CP, CT, EP, ET
+  </sql>
+  
+  <select id="findPaySettingByPharmacyId" resultMap="BaseResultMap" parameterType="java.util.Map">
+		SELECT sps.* from sys_pay_settings sps 
+		LEFT JOIN 
+		sys_pharmacy_pay_settings spps 
+		on 
+		sps.ID=spps.PAY_SETTINGS_ID 
+		WHERE 
+		spps.PHARMACY_ID=#{pharmacyId}
+	</select>
+  
+</mapper>

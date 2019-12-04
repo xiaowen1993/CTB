@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ctb.resources.mapper.biz.BranchPharmacyMapper">
+  <resultMap id="BaseResultMap" type="com.ctb.commons.entity.BranchPharmacy">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="PHARMACY_ID" jdbcType="VARCHAR" property="pharmacyId" />
+    <result column="CODE" jdbcType="VARCHAR" property="code" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="ADDRESS" jdbcType="VARCHAR" property="address" />
+    <result column="CONTACT_NAME" jdbcType="VARCHAR" property="contactName" />
+    <result column="CONTACT_TEL" jdbcType="VARCHAR" property="contactTel" />
+    <result column="LATITUDE" jdbcType="VARCHAR" property="latitude" />
+    <result column="LONGITUDE" jdbcType="VARCHAR" property="longitude" />
+    <result column="BUSINESS_HOURS" jdbcType="VARCHAR" property="businessHours" />
+    <result column="STATUS" jdbcType="INTEGER" property="status" />
+    <result column="CP" jdbcType="VARCHAR" property="cp" />
+    <result column="CT" jdbcType="TIMESTAMP" property="ct" />
+    <result column="EP" jdbcType="VARCHAR" property="ep" />
+    <result column="ET" jdbcType="TIMESTAMP" property="et" />
+  </resultMap>
+</mapper>

@@ -1,0 +1,809 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.ctb.resources.mapper.biz.PrescriptionRecordMapper">
+	<resultMap id="BaseResultMap"
+		type="com.ctb.commons.entity.PrescriptionRecord">
+		<!-- WARNING - @mbg.generated -->
+		<id column="ID" jdbcType="VARCHAR" property="id" />
+		<result column="HOSPITAL_ID" jdbcType="VARCHAR"
+			property="hospitalId" />
+		<result column="HOSPITAL_CODE" jdbcType="VARCHAR"
+			property="hospitalCode" />
+		<result column="HOSPITAL_NAME" jdbcType="VARCHAR"
+			property="hospitalName" />
+		<result column="HOSPITAL_BRANCH_ID" jdbcType="VARCHAR"
+			property="hospitalBranchId" />
+		<result column="HOSPITAL_BRANCH_CODE" jdbcType="VARCHAR"
+			property="hospitalBranchCode" />
+		<result column="MZ_FEE_ID" jdbcType="VARCHAR"
+			property="mzFeeId" />
+		<result column="UNION_ID" jdbcType="VARCHAR" property="unionId" />
+		<result column="OPEN_ID" jdbcType="VARCHAR" property="openId" />
+		<result column="TRADE_MODE" jdbcType="VARCHAR"
+			property="tradeMode" />
+		<result column="PLATFORM_MODE" jdbcType="VARCHAR"
+			property="platformMode" />
+		<result column="AGT_ORD_NUM" jdbcType="VARCHAR"
+			property="agtOrdNum" />
+		<result column="AGT_REFUND_ORD_NUM" jdbcType="VARCHAR"
+			property="agtRefundOrdNum" />
+		<result column="PAY_TIME" jdbcType="BIGINT" property="payTime" />
+		<result column="REFUND_TIME" jdbcType="BIGINT"
+			property="refundTime" />
+		<result column="PAY_STATUS" jdbcType="INTEGER"
+			property="payStatus" />
+		<result column="PRESCRIPTION_STATUS" jdbcType="INTEGER"
+			property="prescriptionStatus" />
+		<result column="PHARMACY_STATUS" jdbcType="INTEGER"
+			property="pharmacyStatus" />
+		<result column="ORDER_NO" jdbcType="VARCHAR" property="orderNo" />
+		<result column="REFUND_ORDER_NO" jdbcType="VARCHAR"
+			property="refundOrderNo" />
+		<result column="ORDER_NO_HASH_VAL" jdbcType="BIGINT"
+			property="orderNoHashVal" />
+		<result column="IS_HAD_CALL_BACK" jdbcType="INTEGER"
+			property="isHadCallBack" />
+		<result column="TOTAL_FEE" jdbcType="VARCHAR"
+			property="totalFee" />
+		<result column="PAY_FEE" jdbcType="VARCHAR" property="payFee" />
+		<result column="DISCOUNT_FEE" jdbcType="VARCHAR"
+			property="discountFee" />
+		<result column="DEPT_CODE" jdbcType="VARCHAR"
+			property="deptCode" />
+		<result column="DOCTOR_CODE" jdbcType="VARCHAR"
+			property="doctorCode" />
+		<result column="DOCTOR_NAME" jdbcType="VARCHAR"
+			property="doctorName" />
+		<result column="DEPT_NAME" jdbcType="VARCHAR"
+			property="deptName" />
+		<result column="RECORD_TYPE" jdbcType="VARCHAR"
+			property="recordType" />
+		<result column="CARD_TYPE" jdbcType="VARCHAR"
+			property="cardType" />
+		<result column="CARD_NO" jdbcType="VARCHAR" property="cardNo" />
+		<result column="PATIENT_NAME" jdbcType="VARCHAR"
+			property="patientName" />
+		<result column="DIAGNOSE" jdbcType="VARCHAR"
+			property="diagnose" />
+		<result column="PHARMACY_ID" jdbcType="VARCHAR"
+			property="pharmacyId" />
+		<result column="PHARMACY_CODE" jdbcType="VARCHAR"
+			property="pharmacyCode" />
+		<result column="PHARMACY_BRANCH_ID" jdbcType="VARCHAR"
+			property="pharmacyBranchId" />
+		<result column="PHARMACY_BRANCH_CODE" jdbcType="VARCHAR"
+			property="pharmacyBranchCode" />
+		<result column="REVIEW_PHYSICIANS_ID" jdbcType="VARCHAR"
+			property="reviewPhysiciansId" />
+		<result column="REVIEW_STATUS" jdbcType="INTEGER"
+			property="reviewStatus" />
+		<result column="REVIEW_MESSAGES" jdbcType="VARCHAR"
+			property="reviewMessages" />
+		<result column="REVIEW_TIME" jdbcType="BIGINT"
+			property="reviewTime" />
+		<result column="IS_EXCEPTION" jdbcType="INTEGER"
+			property="isException" />
+		<result column="IS_HANDLE_SUCCESS" jdbcType="INTEGER"
+			property="isHandleSuccess" />
+		<result column="HANDLE_COUNT" jdbcType="INTEGER"
+			property="handleCount" />
+		<result column="HANDLE_LOG" jdbcType="VARCHAR"
+			property="handleLog" />
+		<result column="CREATE_TIME" jdbcType="BIGINT"
+			property="createTime" />
+		<result column="UPDATE_TIME" jdbcType="BIGINT"
+			property="updateTime" />
+	</resultMap>
+
+	<sql id="Base_Column_List">
+		ID, HOSPITAL_ID, HOSPITAL_CODE, HOSPITAL_NAME,
+		HOSPITAL_BRANCH_ID, HOSPITAL_BRANCH_CODE, MZ_FEE_ID, UNION_ID,
+		OPEN_ID, TRADE_MODE, PLATFORM_MODE, AGT_ORD_NUM,
+		AGT_REFUND_ORD_NUM, PAY_TIME, REFUND_TIME, PAY_STATUS,
+		PRESCRIPTION_STATUS, PHARMACY_STATUS, ORDER_NO, REFUND_ORDER_NO,
+		ORDER_NO_HASH_VAL, IS_HAD_CALL_BACK, TOTAL_FEE,
+		PAY_FEE, DEPT_CODE,
+		DOCTOR_CODE, DOCTOR_NAME, DEPT_NAME, RECORD_TYPE,
+		CARD_TYPE, CARD_NO,
+		PATIENT_NAME, DIAGNOSE,
+		PHARMACY_ID, PHARMACY_CODE, PHARMACY_BRANCH_ID,
+		PHARMACY_BRANCH_CODE,
+		REVIEW_PHYSICIANS_ID, REVIEW_STATUS,
+		REVIEW_MESSAGES,
+		REVIEW_TIME, IS_EXCEPTION, IS_HANDLE_SUCCESS,
+		HANDLE_COUNT, HANDLE_LOG,
+		CREATE_TIME, UPDATE_TIME,DISCOUNT_FEE
+	</sql>
+
+	<sql id="Choose_Hash_Table_Name">
+		<choose>
+			<when test="hashTableName == 'BIZ_PRESCRIPTION_RECORD_1'">
+				BIZ_PRESCRIPTION_RECORD_1
+			</when>
+			<when test="hashTableName == 'BIZ_PRESCRIPTION_RECORD_2'">
+				BIZ_PRESCRIPTION_RECORD_2
+			</when>
+			<when test="hashTableName == 'BIZ_PRESCRIPTION_RECORD_3'">
+				BIZ_PRESCRIPTION_RECORD_3
+			</when>
+			<when test="hashTableName == 'BIZ_PRESCRIPTION_RECORD_4'">
+				BIZ_PRESCRIPTION_RECORD_4
+			</when>
+			<when test="hashTableName == 'BIZ_PRESCRIPTION_RECORD_5'">
+				BIZ_PRESCRIPTION_RECORD_5
+			</when>
+			<when test="hashTableName == 'BIZ_PRESCRIPTION_RECORD_6'">
+				BIZ_PRESCRIPTION_RECORD_6
+			</when>
+			<when test="hashTableName == 'BIZ_PRESCRIPTION_RECORD_7'">
+				BIZ_PRESCRIPTION_RECORD_7
+			</when>
+			<when test="hashTableName == 'BIZ_PRESCRIPTION_RECORD_8'">
+				BIZ_PRESCRIPTION_RECORD_8
+			</when>
+		</choose>
+	</sql>
+
+	<insert id="savePrescriptionRecord"
+		parameterType="com.ctb.commons.entity.PrescriptionRecord">
+		insert into
+		<include refid="Choose_Hash_Table_Name" />
+		(
+		<include refid="Base_Column_List" />
+		)
+		values
+		(
+		#{id}, #{hospitalId}, #{hospitalCode}, #{hospitalName},
+		#{hospitalBranchId},
+		#{hospitalBranchCode}, #{mzFeeId}, #{unionId},
+		#{openId},
+		#{tradeMode}, #{platformMode}, #{agtOrdNum},
+		#{agtRefundOrdNum}, #{payTime}, #{refundTime}, #{payStatus},
+		#{prescriptionStatus},
+		#{pharmacyStatus}, #{orderNo}, #{refundOrderNo},
+		#{orderNoHashVal}, #{isHadCallBack},
+		#{totalFee}, #{payFee},
+		#{deptCode}, #{doctorCode},
+		#{doctorName}, #{deptName}, #{recordType},
+		#{cardType}, #{cardNo}, #{patientName},
+		#{diagnose}, #{pharmacyId},
+		#{pharmacyCode},
+		#{pharmacyBranchId}, #{pharmacyBranchCode},
+		#{reviewPhysiciansId}, #{reviewStatus},
+		#{reviewMessages},
+		#{reviewTime}, #{isException},
+		#{isHandleSuccess}, #{handleCount},
+		#{handleLog}, #{createTime}, #{updateTime},#{discountFee}
+		)
+
+	</insert>
+
+	<select id="findPrescriptionByParams" resultMap="BaseResultMap"
+		parameterType="java.util.Map">
+		select
+		<include refid="Base_Column_List" />
+		from
+		<include refid="Choose_Hash_Table_Name" />
+		where HOSPITAL_CODE = #{hospitalCode,jdbcType=VARCHAR}
+		AND MZ_FEE_ID =
+		#{mzFeeId,jdbcType=VARCHAR}
+		AND CARD_NO = #{cardNo,jdbcType=VARCHAR}
+	</select>
+
+	<select id="findPrescriptionByOrderNo" resultMap="BaseResultMap"
+		parameterType="java.util.Map">
+		select
+		<include refid="Base_Column_List" />
+		from
+		<include refid="Choose_Hash_Table_Name" />
+		where ORDER_NO = #{orderNo,jdbcType=VARCHAR}
+	</select>
+	
+	<select id="findPrescriptionByOpenId" resultMap="BaseResultMap"
+		parameterType="java.util.Map">
+		select
+		<include refid="Base_Column_List" />
+		from
+		<include refid="Choose_Hash_Table_Name" />
+		where OPEN_ID = #{openId,jdbcType=VARCHAR}
+	</select>
+
+	<update id="updatePrescriptionRecord"
+		parameterType="com.ctb.commons.entity.PrescriptionRecord">
+		update
+		<include refid="Choose_Hash_Table_Name" />
+		<set>
+			<if test="hospitalId != null">
+				HOSPITAL_ID = #{hospitalId},
+			</if>
+			<if test="hospitalCode != null">
+				HOSPITAL_CODE = #{hospitalCode},
+			</if>
+			<if test="hospitalName != null">
+				HOSPITAL_NAME = #{hospitalName},
+			</if>
+			<if test="hospitalBranchId != null">
+				HOSPITAL_BRANCH_ID = #{hospitalBranchId},
+			</if>
+			<if test="hospitalBranchCode != null">
+				HOSPITAL_BRANCH_CODE = #{hospitalBranchCode},
+			</if>
+			<if test="mzFeeId != null">
+				MZ_FEE_ID = #{mzFeeId},
+			</if>
+			<if test="unionId != null">
+				UNION_ID = #{unionId},
+			</if>
+			<if test="openId != null">
+				OPEN_ID = #{openId},
+			</if>
+			<if test="tradeMode != null">
+				TRADE_MODE = #{tradeMode},
+			</if>
+			<if test="platformMode != null">
+				PLATFORM_MODE = #{platformMode},
+			</if>
+			<if test="agtOrdNum != null">
+				AGT_ORD_NUM = #{agtOrdNum},
+			</if>
+			<if test="agtRefundOrdNum != null">
+				AGT_REFUND_ORD_NUM = #{agtRefundOrdNum},
+			</if>
+			<if test="payTime != null">
+				PAY_TIME = #{payTime},
+			</if>
+			<if test="refundTime != null">
+				REFUND_TIME = #{refundTime},
+			</if>
+			<if test="payStatus != null">
+				PAY_STATUS = #{payStatus},
+			</if>
+			<if test="prescriptionStatus != null">
+				PRESCRIPTION_STATUS = #{prescriptionStatus},
+			</if>
+			<if test="pharmacyStatus != null">
+				PHARMACY_STATUS = #{pharmacyStatus},
+			</if>
+			<if test="orderNo != null">
+				ORDER_NO = #{orderNo},
+			</if>
+			<if test="refundOrderNo != null">
+				REFUND_ORDER_NO = #{refundOrderNo},
+			</if>
+			<if test="orderNoHashVal != null">
+				ORDER_NO_HASH_VAL = #{orderNoHashVal},
+			</if>
+			<if test="isHadCallBack != null">
+				IS_HAD_CALL_BACK = #{isHadCallBack},
+			</if>
+			<if test="totalFee != null">
+				TOTAL_FEE = #{totalFee},
+			</if>
+			<if test="payFee != null">
+				PAY_FEE = #{payFee},
+			</if>
+			<if test="deptCode != null">
+				DEPT_CODE = #{deptCode},
+			</if>
+			<if test="doctorCode != null">
+				DOCTOR_CODE = #{doctorCode},
+			</if>
+			<if test="doctorName != null">
+				DOCTOR_NAME = #{doctorName},
+			</if>
+			<if test="deptName != null">
+				DEPT_NAME = #{deptName},
+			</if>
+			<if test="recordType != null">
+				RECORD_TYPE= #{recordType},
+			</if>
+			<if test="cardType != null">
+				CARD_TYPE= #{cardType},
+			</if>
+			<if test="cardNo != null">
+				CARD_NO= #{cardNo},
+			</if>
+			<if test="patientName != null">
+				PATIENT_NAME= #{patientName},
+			</if>
+			<if test="diagnose != null">
+				DIAGNOSE= #{diagnose},
+			</if>
+			<if test="pharmacyId != null">
+				PHARMACY_ID= #{pharmacyId},
+			</if>
+			<if test="pharmacyCode != null">
+				PHARMACY_CODE= #{pharmacyCode},
+			</if>
+			<if test="pharmacyBranchId != null">
+				PHARMACY_BRANCH_ID= #{pharmacyBranchId},
+			</if>
+			<if test="pharmacyBranchCode != null">
+				PHARMACY_BRANCH_CODE= #{pharmacyBranchCode},
+			</if>
+			<if test="reviewPhysiciansId != null">
+				REVIEW_PHYSICIANS_ID= #{reviewPhysiciansId},
+			</if>
+			<if test="reviewStatus != null">
+				REVIEW_STATUS= #{reviewStatus},
+			</if>
+			<if test="reviewMessages != null">
+				REVIEW_MESSAGES= #{reviewMessages},
+			</if>
+			<if test="reviewTime != null">
+				REVIEW_TIME= #{reviewTime},
+			</if>
+			<if test="isException != null">
+				IS_EXCEPTION= #{isException},
+			</if>
+			<if test="isHandleSuccess != null">
+				IS_HANDLE_SUCCESS= #{isHandleSuccess},
+			</if>
+			<if test="handleCount != null">
+				HANDLE_COUNT= #{handleCount},
+			</if>
+			<if test="handleLog != null">
+				HANDLE_LOG= #{handleLog},
+			</if>
+			<if test="createTime != null">
+				CREATE_TIME= #{createTime},
+			</if>
+			<if test="updateTime != null">
+				UPDATE_TIME= #{updateTime},
+			</if>
+			<if test="discountFee != null">
+				DISCOUNT_FEE= #{discountFee},
+			</if>
+		</set>
+		where ID = #{id,jdbcType=VARCHAR}
+	</update>
+
+	<select id="findListByParams" resultMap="BaseResultMap"
+		parameterType="java.util.Map">
+		select
+		<include refid="Base_Column_List" />
+		FROM
+		${tableName}
+		WHERE
+		1 = 1
+		<if test="id != null and id != ''">
+			AND ID = #{id}
+		</if>
+		<if test="hospitalId != null and hospitalId != ''">
+			AND HOSPITAL_ID = #{hospitalId}
+		</if>
+		<if test="hospitalCode != null and hospitalCode != ''">
+			AND HOSPITAL_Code in #{hospitalCode}
+		</if>
+		<if test="hospitalBranchId != null and hospitalBranchId != ''">
+			AND HOSPITAL_BRANCH_ID = #{hospitalBranchId}
+		</if>
+		<if test="hospitalBranchCode != null and hospitalBranchCode != ''">
+			AND HOSPITAL_BRANCH_Code = #{hospitalBranchCode}
+		</if>
+		<if test="mzFeeId != null and mzFeeId != ''">
+			AND MZ_FEE_ID = #{mzFeeId}
+		</if>
+		<if test="unionId != null and unionId != ''">
+			AND UNION_ID = #{unionId}
+		</if>
+		<if test="openId != null and openId != ''">
+			AND OPEN_ID = #{openId}
+		</if>
+		<if test="tradeMode != null and tradeMode != ''">
+			AND TRADE_MODE = #{tradeMode}
+		</if>
+		<if test="platFormMode != null and platFormMode != ''">
+			AND PLATFORM_MODE = #{platFormMode}
+		</if>
+		<if test="agtOrdNum != null and agtOrdNum != ''">
+			AND AGT_ORD_NUM = #{agtOrdNum, jdbcType=VARCHAR}
+		</if>
+		<if test="agtRefundOrdNum != null and agtRefundOrdNum != ''">
+			AND AGT_REFUND_ORD_NUM = #{agtRefundOrdNum}
+		</if>
+		<if test="payTime != null and payTime != ''">
+			AND PAY_TIME = #{payTime}
+		</if>
+		<if test="refundTime != null and refundTime != ''">
+			AND REFUND_TIME = #{refundTime}
+		</if>
+		<if test="payStatus != null and payStatus != ''">
+			AND PAY_STATUS = #{payStatus}
+		</if>
+		<if test="prescriptionStatus != null and prescriptionStatus != ''">
+			AND PRESCRIPTION_STATUS = #{prescriptionStatus}
+		</if>
+		<if test="pharmacyStatus != null and pharmacyStatus != ''">
+			AND PHARMACY_STATUS = #{pharmacyStatus}
+		</if>
+		<if test="orderNo != null and orderNo != ''">
+			AND ORDER_NO LIKE '%${orderNo}%'
+		</if>
+		<if test="refundOrderNo != null and refundOrderNo != ''">
+			AND REFUND_ORDER_NO = #{refundOrderNo}
+		</if>
+		<if test="totalFee != null and totalFee != ''">
+			AND TOTAL_FEE = #{totalFee}
+		</if>
+		<if test="payFee != null and payFee != ''">
+			AND PAY_FEE = #{payFee}
+		</if>
+		<if test="deptCode != null and deptCode != ''">
+			AND DEPT_CODE = #{deptCode}
+		</if>
+		<if test="doctorCode != null and doctorCode != ''">
+			AND DOCTOR_CODE = #{doctorCode}
+		</if>
+		<if test="recordType != null and recordType != ''">
+			AND RECORD_TYPE = #{recordType}
+		</if>
+		<if test="cardType != null and cardType != ''">
+			AND CARD_TYPE = #{cardType}
+		</if>
+		<if test="cardNo != null and cardNo != ''">
+			AND CARD_NO = #{cardNo}
+		</if>
+		<if test="patientName != null and patientName != ''">
+			AND PATIENT_NAME LIKE '%${patientName}%'
+		</if>
+		<if test="pharmacyId != null and pharmacyId != ''">
+			AND PHARMACY_ID = #{pharmacyId}
+		</if>
+		<if test="pharmacyCode != null and pharmacyCode != ''">
+			AND PHARMACY_CODE = #{pharmacyCode}
+		</if>
+		<if test="pharmacyBranchId != null and pharmacyBranchId != ''">
+			AND PHARMACY_BRANCH_ID = #{pharmacyBranchId}
+		</if>
+		<if test="pharmacyBranchCode != null and pharmacyBranchCode != ''">
+			AND PHARMACY_BRANCH_CODE = #{pharmacyBranchCode}
+		</if>
+		<if test="reviewStatus != null">
+			AND REVIEW_STATUS= #{reviewStatus}
+		</if>
+		<if test="startTime != null and startTime != ''">
+			AND `CREATE_TIME` &gt;= ${startTime}
+		</if>
+		<if test="endTime != null and endTime != ''">
+			AND `CREATE_TIME` &lt;= ${endTime}
+		</if>
+		ORDER BY CREATE_TIME ${sortType}
+		<if test="backfill != null">
+			LIMIT ${startNum}, ${pageSize}   <!-- LIMIT ${backfill} -->
+		</if>
+		
+	</select>
+
+	<select id="findRangeByParams" parameterType="java.util.Map"
+		resultType="java.lang.Long">
+		SELECT
+		`CREATE_TIME`
+		FROM
+		${tableName}
+		WHERE
+		1 = 1
+		<if test="id != null and id != ''">
+			AND ID = #{id}
+		</if>
+		<if test="hospitalId != null and hospitalId != ''">
+			AND HOSPITAL_ID = #{hospitalId}
+		</if>
+		<if test="hospitalCode != null and hospitalCode != ''">
+			AND HOSPITAL_Code = #{hospitalCode}
+		</if>
+		<if test="hospitalBranchId != null and hospitalBranchId != ''">
+			AND HOSPITAL_BRANCH_ID = #{hospitalBranchId}
+		</if>
+		<if test="hospitalBranchCode != null and hospitalBranchCode != ''">
+			AND HOSPITAL_BRANCH_Code = #{hospitalBranchCode}
+		</if>
+		<if test="mzFeeId != null and mzFeeId != ''">
+			AND MZ_FEE_ID = #{mzFeeId}
+		</if>
+		<if test="unionId != null and unionId != ''">
+			AND UNION_ID = #{unionId}
+		</if>
+		<if test="openId != null and openId != ''">
+			AND OPEN_ID = #{openId}
+		</if>
+		<if test="tradeMode != null and tradeMode != ''">
+			AND TRADE_MODE = #{tradeMode}
+		</if>
+		<if test="platFormMode != null and platFormMode != ''">
+			AND PLATFORM_MODE = #{platFormMode}
+		</if>
+		<if test="agtOrdNum != null and agtOrdNum != ''">
+			AND AGT_ORD_NUM = #{agtOrdNum, jdbcType=VARCHAR}
+		</if>
+		<if test="agtRefundOrdNum != null and agtRefundOrdNum != ''">
+			AND AGT_REFUND_ORD_NUM = #{agtRefundOrdNum}
+		</if>
+		<if test="payTime != null and payTime != ''">
+			AND PAY_TIME = #{payTime}
+		</if>
+		<if test="refundTime != null and refundTime != ''">
+			AND REFUND_TIME = #{refundTime}
+		</if>
+		<if test="payStatus != null and payStatus != ''">
+			AND PAY_STATUS = #{payStatus}
+		</if>
+		<if test="prescriptionStatus != null and prescriptionStatus != ''">
+			AND PRESCRIPTION_STATUS = #{prescriptionStatus}
+		</if>
+		<if test="pharmacyStatus != null and pharmacyStatus != ''">
+			AND PHARMACY_STATUS = #{pharmacyStatus}
+		</if>
+		<if test="orderNo != null and orderNo != ''">
+			AND ORDER_NO = #{orderNo}
+		</if>
+		<if test="refundOrderNo != null and refundOrderNo != ''">
+			AND REFUND_ORDER_NO = #{refundOrderNo}
+		</if>
+		<if test="totalFee != null and totalFee != ''">
+			AND TOTAL_FEE = #{totalFee}
+		</if>
+		<if test="payFee != null and payFee != ''">
+			AND PAY_FEE = #{payFee}
+		</if>
+		<if test="deptCode != null and deptCode != ''">
+			AND DEPT_CODE = #{deptCode}
+		</if>
+		<if test="doctorCode != null and doctorCode != ''">
+			AND DOCTOR_CODE = #{doctorCode}
+		</if>
+		<if test="recordType != null and recordType != ''">
+			AND RECORD_TYPE = #{recordType}
+		</if>
+		<if test="cardType != null and cardType != ''">
+			AND CARD_TYPE = #{cardType}
+		</if>
+		<if test="cardNo != null and cardNo != ''">
+			AND CARD_NO = #{cardNo}
+		</if>
+		<if test="patientName != null and patientName != ''">
+			AND PATIENT_NAME LIKE '%${patientName}%'
+		</if>
+		<if test="pharmacyId != null and pharmacyId != ''">
+			AND PHARMACY_ID = #{pharmacyId}
+		</if>
+		<if test="pharmacyCode != null and pharmacyCode != ''">
+			AND PHARMACY_CODE = #{pharmacyCode}
+		</if>
+		<if test="pharmacyBranchId != null and pharmacyBranchId != ''">
+			AND PHARMACY_BRANCH_ID = #{pharmacyBranchId}
+		</if>
+		<if test="pharmacyBranchCode != null and pharmacyBranchCode != ''">
+			AND PHARMACY_BRANCH_CODE = #{pharmacyBranchCode}
+		</if>
+		<if test="startTime != null and startTime != ''">
+			AND `CREATE_TIME` &gt;= ${startTime}
+		</if>
+		<if test="endTime != null and endTime != ''">
+			AND `CREATE_TIME` &lt;= ${endTime}
+		</if>
+		ORDER BY CREATE_TIME DESC
+		LIMIT ${subStartNum}, ${pageSize}
+	</select>
+
+	<select id="findOffsetByParams" parameterType="java.util.Map"
+		resultType="java.lang.Long">
+		SELECT
+		COUNT(1)
+		FROM
+		${tableName}
+		WHERE
+		1 = 1
+		<if test="id != null and id != ''">
+			AND ID = #{id}
+		</if>
+		<if test="hospitalId != null and hospitalId != ''">
+			AND HOSPITAL_ID = #{hospitalId}
+		</if>
+		<if test="hospitalCode != null and hospitalCode != ''">
+			AND HOSPITAL_Code = #{hospitalCode}
+		</if>
+		<if test="hospitalBranchId != null and hospitalBranchId != ''">
+			AND HOSPITAL_BRANCH_ID = #{hospitalBranchId}
+		</if>
+		<if test="hospitalBranchCode != null and hospitalBranchCode != ''">
+			AND HOSPITAL_BRANCH_Code = #{hospitalBranchCode}
+		</if>
+		<if test="mzFeeId != null and mzFeeId != ''">
+			AND MZ_FEE_ID = #{mzFeeId}
+		</if>
+		<if test="unionId != null and unionId != ''">
+			AND UNION_ID = #{unionId}
+		</if>
+		<if test="openId != null and openId != ''">
+			AND OPEN_ID = #{openId}
+		</if>
+		<if test="tradeMode != null and tradeMode != ''">
+			AND TRADE_MODE = #{tradeMode}
+		</if>
+		<if test="platFormMode != null and platFormMode != ''">
+			AND PLATFORM_MODE = #{platFormMode}
+		</if>
+		<if test="agtOrdNum != null and agtOrdNum != ''">
+			AND AGT_ORD_NUM = #{agtOrdNum, jdbcType=VARCHAR}
+		</if>
+		<if test="agtRefundOrdNum != null and agtRefundOrdNum != ''">
+			AND AGT_REFUND_ORD_NUM = #{agtRefundOrdNum}
+		</if>
+		<if test="payTime != null and payTime != ''">
+			AND PAY_TIME = #{payTime}
+		</if>
+		<if test="refundTime != null and refundTime != ''">
+			AND REFUND_TIME = #{refundTime}
+		</if>
+		<if test="payStatus != null and payStatus != ''">
+			AND PAY_STATUS = #{payStatus}
+		</if>
+		<if test="prescriptionStatus != null and prescriptionStatus != ''">
+			AND PRESCRIPTION_STATUS = #{prescriptionStatus}
+		</if>
+		<if test="pharmacyStatus != null and pharmacyStatus != ''">
+			AND PHARMACY_STATUS = #{pharmacyStatus}
+		</if>
+		<if test="orderNo != null and orderNo != ''">
+			AND ORDER_NO = #{orderNo}
+		</if>
+		<if test="refundOrderNo != null and refundOrderNo != ''">
+			AND REFUND_ORDER_NO = #{refundOrderNo}
+		</if>
+		<if test="totalFee != null and totalFee != ''">
+			AND TOTAL_FEE = #{totalFee}
+		</if>
+		<if test="payFee != null and payFee != ''">
+			AND PAY_FEE = #{payFee}
+		</if>
+		<if test="deptCode != null and deptCode != ''">
+			AND DEPT_CODE = #{deptCode}
+		</if>
+		<if test="doctorCode != null and doctorCode != ''">
+			AND DOCTOR_CODE = #{doctorCode}
+		</if>
+		<if test="recordType != null and recordType != ''">
+			AND RECORD_TYPE = #{recordType}
+		</if>
+		<if test="cardType != null and cardType != ''">
+			AND CARD_TYPE = #{cardType}
+		</if>
+		<if test="cardNo != null and cardNo != ''">
+			AND CARD_NO = #{cardNo}
+		</if>
+		<if test="patientName != null and patientName != ''">
+			AND PATIENT_NAME LIKE '%${patientName}%'
+		</if>
+		<if test="pharmacyId != null and pharmacyId != ''">
+			AND PHARMACY_ID = #{pharmacyId}
+		</if>
+		<if test="pharmacyCode != null and pharmacyCode != ''">
+			AND PHARMACY_CODE = #{pharmacyCode}
+		</if>
+		<if test="pharmacyBranchId != null and pharmacyBranchId != ''">
+			AND PHARMACY_BRANCH_ID = #{pharmacyBranchId}
+		</if>
+		<if test="pharmacyBranchCode != null and pharmacyBranchCode != ''">
+			AND PHARMACY_BRANCH_CODE = #{pharmacyBranchCode}
+		</if>
+		<if test="startTime != null and startTime != ''">
+			AND `CREATE_TIME` &gt;= ${startTime}
+		</if>
+		<if test="endTime != null and endTime != ''">
+			AND `CREATE_TIME` &lt;= ${endTime}
+		</if>
+		ORDER BY CREATE_TIME DESC
+	</select>
+
+	<select id="total" resultMap="BaseResultMap"
+		parameterType="java.lang.Long">
+		select
+		COUNT(1)
+		FROM
+		${tableName}
+		WHERE
+		1 = 1
+		<if test="id != null and id != ''">
+			AND ID = #{id}
+		</if>
+		<if test="hospitalId != null and hospitalId != ''">
+			AND HOSPITAL_ID = #{hospitalId}
+		</if>
+		<if test="hospitalCode != null and hospitalCode != ''">
+			AND HOSPITAL_Code = #{hospitalCode}
+		</if>
+		<if test="hospitalBranchId != null and hospitalBranchId != ''">
+			AND HOSPITAL_BRANCH_ID = #{hospitalBranchId}
+		</if>
+		<if test="hospitalBranchCode != null and hospitalBranchCode != ''">
+			AND HOSPITAL_BRANCH_Code = #{hospitalBranchCode}
+		</if>
+		<if test="mzFeeId != null and mzFeeId != ''">
+			AND MZ_FEE_ID = #{mzFeeId}
+		</if>
+		<if test="unionId != null and unionId != ''">
+			AND UNION_ID = #{unionId}
+		</if>
+		<if test="openId != null and openId != ''">
+			AND OPEN_ID = #{openId}
+		</if>
+		<if test="tradeMode != null and tradeMode != ''">
+			AND TRADE_MODE = #{tradeMode}
+		</if>
+		<if test="platFormMode != null and platFormMode != ''">
+			AND PLATFORM_MODE = #{platFormMode}
+		</if>
+		<if test="agtOrdNum != null and agtOrdNum != ''">
+			AND AGT_ORD_NUM = #{agtOrdNum, jdbcType=VARCHAR}
+		</if>
+		<if test="agtRefundOrdNum != null and agtRefundOrdNum != ''">
+			AND AGT_REFUND_ORD_NUM = #{agtRefundOrdNum}
+		</if>
+		<if test="payTime != null and payTime != ''">
+			AND PAY_TIME = #{payTime}
+		</if>
+		<if test="refundTime != null and refundTime != ''">
+			AND REFUND_TIME = #{refundTime}
+		</if>
+		<if test="payStatus != null and payStatus != ''">
+			AND PAY_STATUS = #{payStatus}
+		</if>
+		<if test="prescriptionStatus != null and prescriptionStatus != ''">
+			AND PRESCRIPTION_STATUS = #{prescriptionStatus}
+		</if>
+		<if test="pharmacyStatus != null and pharmacyStatus != ''">
+			AND PHARMACY_STATUS = #{pharmacyStatus}
+		</if>
+		<if test="orderNo != null and orderNo != ''">
+			AND ORDER_NO = #{orderNo}
+		</if>
+		<if test="refundOrderNo != null and refundOrderNo != ''">
+			AND REFUND_ORDER_NO = #{refundOrderNo}
+		</if>
+		<if test="totalFee != null and totalFee != ''">
+			AND TOTAL_FEE = #{totalFee}
+		</if>
+		<if test="payFee != null and payFee != ''">
+			AND PAY_FEE = #{payFee}
+		</if>
+		<if test="deptCode != null and deptCode != ''">
+			AND DEPT_CODE = #{deptCode}
+		</if>
+		<if test="doctorCode != null and doctorCode != ''">
+			AND DOCTOR_CODE = #{doctorCode}
+		</if>
+		<if test="recordType != null and recordType != ''">
+			AND RECORD_TYPE = #{recordType}
+		</if>
+		<if test="cardType != null and cardType != ''">
+			AND CARD_TYPE = #{cardType}
+		</if>
+		<if test="cardNo != null and cardNo != ''">
+			AND CARD_NO = #{cardNo}
+		</if>
+		<if test="patientName != null and patientName != ''">
+			AND PATIENT_NAME LIKE '%${patientName}%'
+		</if>
+		<if test="pharmacyId != null and pharmacyId != ''">
+			AND PHARMACY_ID = #{pharmacyId}
+		</if>
+		<if test="pharmacyCode != null and pharmacyCode != ''">
+			AND PHARMACY_CODE = #{pharmacyCode}
+		</if>
+		<if test="pharmacyBranchId != null and pharmacyBranchId != ''">
+			AND PHARMACY_BRANCH_ID = #{pharmacyBranchId}
+		</if>
+		<if test="pharmacyBranchCode != null and pharmacyBranchCode != ''">
+			AND PHARMACY_BRANCH_CODE = #{pharmacyBranchCode}
+		</if>
+		<if test="startTime != null and startTime != ''">
+			AND `CREATE_TIME` &gt;= ${startTime}
+		</if>
+		<if test="endTime != null and endTime != ''">
+			AND `CREATE_TIME` &lt;= ${endTime}
+		</if>
+		ORDER BY CREATE_TIME DESC
+	</select>
+</mapper>

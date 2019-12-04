@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ctb.mobile.rest.mapper.DataPaidMzFeeMapper">
+  <resultMap id="BaseResultMap" type="com.ctb.mobile.rest.entity.DataPaidMzFee">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="HOSPITAL_ID" jdbcType="VARCHAR" property="hospitalId" />
+    <result column="HOSPITAL_CODE" jdbcType="VARCHAR" property="hospitalCode" />
+    <result column="HOSPITAL_NAME" jdbcType="VARCHAR" property="hospitalName" />
+    <result column="BRANCH_ID" jdbcType="VARCHAR" property="branchId" />
+    <result column="BRANCH_CODE" jdbcType="VARCHAR" property="branchCode" />
+    <result column="BRANCH_NAME" jdbcType="VARCHAR" property="branchName" />
+    <result column="STORAGE_TIME" jdbcType="BIGINT" property="storageTime" />
+    <result column="PATIENT_NAME" jdbcType="VARCHAR" property="patientName" />
+    <result column="CARD_TYPE" jdbcType="INTEGER" property="cardType" />
+    <result column="CARD_NO" jdbcType="VARCHAR" property="cardNo" />
+    <result column="MZ_FEE_ID" jdbcType="VARCHAR" property="mzFeeId" />
+    <result column="HIS_ORD_NUM" jdbcType="VARCHAR" property="hisOrdNum" />
+    <result column="DEPT_NAME" jdbcType="VARCHAR" property="deptName" />
+    <result column="DOCTOR_NAME" jdbcType="VARCHAR" property="doctorName" />
+    <result column="PAY_AMOUT" jdbcType="VARCHAR" property="payAmout" />
+    <result column="PAY_TIME" jdbcType="VARCHAR" property="payTime" />
+    <result column="PAY_MODE" jdbcType="VARCHAR" property="payMode" />
+    <result column="RECEIPT_NUM" jdbcType="VARCHAR" property="receiptNum" />
+    <result column="BARCODE" jdbcType="VARCHAR" property="barcode" />
+    <result column="HIS_MESSAGE" jdbcType="VARCHAR" property="hisMessage" />
+  </resultMap>
+</mapper>

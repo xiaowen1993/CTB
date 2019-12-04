@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ctb.resources.mapper.biz.DataPayMzFeeMapper">
+  <resultMap id="BaseResultMap" type="com.ctb.commons.entity.DataPayMzFee">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="HOSPITAL_ID" jdbcType="VARCHAR" property="hospitalId" />
+    <result column="HOSPITAL_CODE" jdbcType="VARCHAR" property="hospitalCode" />
+    <result column="HOSPITAL_NAME" jdbcType="VARCHAR" property="hospitalName" />
+    <result column="BRANCH_ID" jdbcType="VARCHAR" property="branchId" />
+    <result column="BRANCH_CODE" jdbcType="VARCHAR" property="branchCode" />
+    <result column="BRANCH_NAME" jdbcType="VARCHAR" property="branchName" />
+    <result column="STORAGE_TIME" jdbcType="BIGINT" property="storageTime" />
+    <result column="PATIENT_NAME" jdbcType="VARCHAR" property="patientName" />
+    <result column="CARD_TYPE" jdbcType="INTEGER" property="cardType" />
+    <result column="CARD_NO" jdbcType="VARCHAR" property="cardNo" />
+    <result column="MZ_FEE_ID" jdbcType="VARCHAR" property="mzFeeId" />
+    <result column="CLINIC_TIME" jdbcType="VARCHAR" property="clinicTime" />
+    <result column="DEPT_NAME" jdbcType="VARCHAR" property="deptName" />
+    <result column="DOCTOR_NAME" jdbcType="VARCHAR" property="doctorName" />
+    <result column="PAY_TYPE" jdbcType="VARCHAR" property="payType" />
+    <result column="PAY_AMOUT" jdbcType="VARCHAR" property="payAmout" />
+    <result column="MEDICARE_AMOUT" jdbcType="VARCHAR" property="medicareAmout" />
+    <result column="TOTAL_AMOUT" jdbcType="VARCHAR" property="totalAmout" />
+    <result column="SS_CLINIC_NO" jdbcType="VARCHAR" property="ssClinicNo" />
+    <result column="SS_BILL_NUMBER" jdbcType="VARCHAR" property="ssBillNumber" />
+    <result column="CAN_USE_INSURANCE" jdbcType="VARCHAR" property="canUseInsurance" />
+    <result column="RECIPE_TYPE" jdbcType="VARCHAR" property="recipeType" />
+    <result column="RECIPE_ID" jdbcType="VARCHAR" property="recipeId" />
+    <result column="MZ_BILL_ID" jdbcType="VARCHAR" property="mzBillId" />
+    <result column="INSURANCE_AMOUT" jdbcType="VARCHAR" property="insuranceAmout" />
+  </resultMap>
+</mapper>

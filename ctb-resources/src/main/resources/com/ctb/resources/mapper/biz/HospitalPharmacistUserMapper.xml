@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ctb.resources.mapper.biz.HospitalPharmacistUserMapper">
+  <resultMap id="BaseResultMap" type="com.ctb.commons.entity.HospitalPharmacistUser">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="HOSPITAL_CODE" jdbcType="VARCHAR" property="hospitalCode" />
+    <result column="PHARMACIST_ID" jdbcType="VARCHAR" property="pharmacistId" />
+    <result column="STATUS" jdbcType="INTEGER" property="status" />
+  </resultMap>
+  
+</mapper>

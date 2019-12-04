@@ -1,0 +1,51 @@
+server:
+  port: 8060
+
+management:
+  security:
+    enabled: false
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 20000
+
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 10000
+
+zuul:
+  host:
+    connect-timeout-millis: 3000
+    socket-timeout-millis: 3000
+  ignoredServices: '*'
+  routes:
+    auth-service:
+      path: /uaa/**
+      stripPrefix: false
+      sensitiveHeaders:
+    ctb-platform-service:
+      path: /platform/**
+      sensitiveHeaders:
+    ctb-mobile-service:
+      path: /mobile/**
+      sensitiveHeaders:
+    ctb-pharmacy-service:
+      path: /pharmacy/**
+      sensitiveHeaders:
+    ctb-sync-his-data-service:
+      path: /syncdata/**
+      sensitiveHeaders:
+    ctb-access-token-service:
+      path: /accesstoken/**
+      sensitiveHeaders:      
+    ctb-review-prescription-service:
+      path: /review/**
+      sensitiveHeaders: 
+
+ctb-platform-service:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.ctb.gateway.rule.StickyLoadBalancerRule

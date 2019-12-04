@@ -1,0 +1,17 @@
+# Project exclude paths
+/ctb-access-token/target/
+/ctb-auth-service/target/
+/ctb-commons/target/
+/ctb-config/target/
+/ctb-data-persistence/target/
+/ctb-framework/target/
+/ctb-gateway/target/
+/ctb-mobile/target/
+/ctb-monitor/target/
+/ctb-pharmacy/target/
+/ctb-platform/target/
+/ctb-registry/target/
+/ctb-resources/target/
+/ctb-review-prescription/target/
+/ctb-sync-his-data/target/
+/ctb-zipkin/target/

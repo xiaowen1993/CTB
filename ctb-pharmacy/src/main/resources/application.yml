@@ -1,0 +1,61 @@
+spring:
+  profiles:
+    active: dev
+    
+#datasource config
+  datasource:
+    name: mysql
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    #druid相关配置
+    druid:
+      #监控统计拦截的filters
+      filters: stat,wall,log4j
+      #配置初始化大小/最小/最大
+      initialSize: 5
+      minIdle: 10
+      maxActive: 50
+      #获取连接等待超时时间
+      maxWait: 60000
+      #间隔多久进行一次检测，检测需要关闭的空闲连接
+      timeBetweenEvictionRunsMillis: 60000
+      #一个连接在池中最小生存的时间
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 'x'
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      #打开PSCache，并指定每个连接上PSCache的大小。oracle设为true，mysql设为false。分库分表较多推荐设置为false
+      poolPreparedStatements: false
+      maxPoolPreparedStatementPerConnectionSize: 20
+
+#redis config  
+  redis:
+    expireSeconds: 120
+    commandTimeout: 10000  #redis操作的超时时间
+    pool:
+      maxWaitMillis: 60000    #获取连接最大等待时间 ms  #default -1
+      maxActive: 5000 #最大连接数
+      maxIdle: 300 #最大空闲连接数
+      minIdle: 50 #最小空闲连接数
+      testOnBorrow: true
+      testWhileIdle: true
+      timeBetweenEvictionRunsMillis: 120000
+      minEvictableIdleTimeMillis: 60000
+      maxTotal: 10000
+      testOnReturn: false 
+      numTestsPerEvictionRun: 10
+     
+#mybatis config   
+  pagehelper:
+    supportMethodsArguments: true
+    reasonable: true
+    helperDialect: mysql
+    params: count=countSql
+  mybatis:
+    mapper-locations: classpath:mapper/*.xml
+    type-aliases-package: com.ctb.pharmacy.rest.entity
+  mapper:
+    identity: MYSQL
+    not-empty: false
+    mappers: com.ctb.pharmacy.rest.mapper

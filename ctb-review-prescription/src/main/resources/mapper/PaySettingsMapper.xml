@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ctb.mobile.rest.mapper.PaySettingsMapper">
+  <resultMap id="BaseResultMap" type="com.ctb.mobile.rest.entity.PaySettings">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="APP_ID" jdbcType="VARCHAR" property="appId" />
+    <result column="APP_SECRET" jdbcType="VARCHAR" property="appSecret" />
+    <result column="MCH_ID" jdbcType="VARCHAR" property="mchId" />
+    <result column="PAY_KEY" jdbcType="VARCHAR" property="payKey" />
+    <result column="CERTIFICATE_PATH" jdbcType="VARCHAR" property="certificatePath" />
+    <result column="CP" jdbcType="VARCHAR" property="cp" />
+    <result column="CT" jdbcType="TIMESTAMP" property="ct" />
+    <result column="EP" jdbcType="VARCHAR" property="ep" />
+    <result column="ET" jdbcType="TIMESTAMP" property="et" />
+  </resultMap>
+</mapper>

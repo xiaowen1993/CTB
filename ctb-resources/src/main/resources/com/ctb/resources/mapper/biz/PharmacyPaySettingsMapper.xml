@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ctb.resources.mapper.biz.PharmacyPaySettingsMapper">
+  <resultMap id="BaseResultMap" type="com.ctb.commons.entity.PharmacyPaySettings">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="PAY_SETTINGS_ID" jdbcType="VARCHAR" property="paySettingsId" />
+    <result column="PHARMACY_ID" jdbcType="VARCHAR" property="pharmacyId" />
+    <result column="STATUS" jdbcType="INTEGER" property="status" />
+  </resultMap>
+	
+</mapper>

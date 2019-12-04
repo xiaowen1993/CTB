@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ctb.syncdata.rest.mapper.HospitalMapper">
+	<resultMap id="BaseResultMap"
+		type="com.ctb.syncdata.rest.entity.Hospital">
+		<!-- WARNING - @mbg.generated -->
+		<id column="ID" jdbcType="VARCHAR" property="id" />
+		<result column="NAME" jdbcType="VARCHAR" property="name" />
+		<result column="CODE" jdbcType="VARCHAR" property="code" />
+		<result column="STATE" jdbcType="INTEGER" property="state" />
+	</resultMap>
+
+	<resultMap id="hospitalPlatformSettingsResultMap"
+		type="com.ctb.syncdata.rest.entity.vo.HospitalPlatformVO">
+		<id column="ID" jdbcType="VARCHAR" property="id" />
+		<result column="NAME" jdbcType="VARCHAR" property="name" />
+		<result column="CODE" jdbcType="VARCHAR" property="code" />
+		<result column="STATE" jdbcType="INTEGER" property="state" />
+		<result column="APP_ID" jdbcType="VARCHAR" property="appId" />
+		<result column="PLATFORM_NAME" jdbcType="VARCHAR"
+			property="platformName" />
+		<result column="PLATFORM_CODE" jdbcType="INTEGER"
+			property="platformCode" />
+	</resultMap>
+
+	<select id="findHospitalPlatformSettingsByCode"
+		resultMap="hospitalPlatformSettingsResultMap">
+		SELECT
+		h.ID,
+		h.CODE,
+		h.NAME,
+		h.STATE,
+		hps.APP_ID as APP_ID,
+		p.CODE as
+		PLATFORM_CODE,
+		P.NAME AS PLATFORM_NAME
+		FROM
+		hospital h,
+		hospital_platform_settings hps,
+		platform p
+		WHERE
+		h.ID = hps.HOSPITAL_ID
+		AND p.ID = hps.PLATFORM_ID
+		AND h.CODE in
+		<foreach item="code" index="index" collection="array"
+			open="(" separator="," close=")">
+			#{code}
+		</foreach>
+		AND p.CODE in
+		('1', '7')
+	</select>
+
+</mapper>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ctb.resources.mapper.biz.DrugListMapper">
+  <resultMap id="BaseResultMap" type="com.ctb.commons.entity.DrugList">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+<!--     <result column="HOSPITAL_ID" jdbcType="VARCHAR" property="hospitalId" /> -->
+    <result column="DRUG_NAME" jdbcType="VARCHAR" property="drugName" />
+    <result column="DRUG_CODE" jdbcType="VARCHAR" property="drugCode" />
+    <result column="CADN" jdbcType="VARCHAR" property="cadn" />
+    <result column="APPROVAL_NO" jdbcType="VARCHAR" property="approvalNo" />
+    <result column="MANUFACTURER" jdbcType="VARCHAR" property="manufacturer" />
+    <result column="SPECIFICATION" jdbcType="VARCHAR" property="specification" />
+<!--     <result column="HIS_DRUG_CODE" jdbcType="VARCHAR" property="hisDrugCode" /> -->
+    <result column="USAGE" jdbcType="VARCHAR" property="usage" />
+    <result column="CP" jdbcType="VARCHAR" property="cp" />
+    <result column="CT" jdbcType="TIMESTAMP" property="ct" />
+    <result column="EP" jdbcType="VARCHAR" property="ep" />
+    <result column="ET" jdbcType="TIMESTAMP" property="et" />
+  </resultMap>
+  
+	<select id="queryDrugListByExample" resultMap="BaseResultMap">
+	    SELECT *
+	    FROM 
+	    	sys_drug_list
+	    WHERE
+	    	1=1
+	       	<!-- 条件查询 -->
+			<if test="drugName !=null and drugName != '' ">
+				AND  DRUG_NAME = #{drugName} 
+			</if>
+			<if test="drugCode !=null and drugCode != '' ">
+				AND  DRUG_CODE = #{drugCode} 
+			</if>
+			<if test="cadn !=null and cadn != '' ">
+				AND  CADN = #{cadn} 
+			</if>
+			<if test="approvalNo != null and approvalNo != ''">
+				AND APPROVAL_NO = #{approvalNo }
+			</if>
+			<if test="manufacturer != null and manufacturer != ''">
+				AND MANUFACTURER = #{manufacturer}
+			</if>
+			<if test="specification != null and specification != ''">
+				AND SPECIFICATION = #{specification}
+			</if>
+			<if test="usage != null and usage != ''">
+				AND `USAGE` = #{usage}
+			</if>
+			<if test="cp != null and cp != ''">
+				AND CP = #{cp}
+			</if>
+			<if test="ct != null and ct != ''">
+				AND ET = #{ct}
+			</if>
+			<if test="ep != null and ep != ''">
+				AND EP = #{ep}
+			</if>
+			<if test="et != null and et != ''">
+				AND ET = #{et}
+			</if>
+	    
+	</select>  
+  
+  	<select id="selectDrugByRedis" resultType="java.util.HashMap">
+		SELECT sdl.APPROVAL_NO as approvalNo,sdl.CADN as cadn,sdl.CP as cp,sdl.CT as ct,sdl.EP as ep,sdl.Et as et,
+		sdl.DRUG_CODE as drugCode,sdl.DRUG_NAME as drugName,sdl.ID as id,sdl.MANUFACTURER as manufacturer,sdl.SPECIFICATION as specification,
+		sdl.USAGE as `usage`,shd.HIS_DRUG_CODE as hisDrugCode,shd.HOSPITAL_ID as hospitalId
+		FROM 
+			sys_hospital_drug shd,sys_hospital sh,sys_drug_list sdl 		
+		WHERE 
+			sh.ID=shd.HOSPITAL_ID AND sdl.ID=shd.DRUG_ID AND shd.TYPE = 1
+			<!-- 条件查询 -->
+			<if test="hospitalId !=null and hospitalId != '' ">
+				AND shd.HOSPITAL_ID = #{hospitalId} 
+			</if>
+	</select>
+	
+  	<select id="queryDurgLists" resultMap="BaseResultMap">
+  	    SELECT * 
+  	    FROM
+  	    	sys_drug_list
+  	    WHERE
+  	    	1=1
+  	    	<!-- 条件查询 -->
+			<if test="drugName != null and drugName != ''">
+				AND DRUG_NAME LIKE '%${drugName}%'
+			</if>
+			<if test="drugCode != null and drugCode != ''">
+				AND DRUG_CODE LIKE '%${drugCode}%'
+			</if>
+			<if test="cadn != null and cadn != ''">
+				AND CADN LIKE '%${cadn}%' 
+			</if>
+  	</select>
+  	
+  	<insert id="saveDrugList"
+		parameterType="com.ctb.commons.entity.DrugList">
+		INSERT INTO 
+			sys_drug_list
+		VALUES(
+			#{id}, #{drugName}, #{drugCode}, #{cadn},
+			#{approvalNo},#{manufacturer}, #{specification}, #{usage},
+			#{cp},#{ct},#{ep},#{et}
+		) 
+	</insert>
+	
+  	<update id="updateDrugList"
+		parameterType="com.ctb.commons.entity.DrugList">
+			UPDATE sys_drug_list
+		<trim prefix="SET" suffixOverrides=",">
+			<if test="drugName != null and drugName != ''">
+				DRUG_NAME = #{drugName},
+			</if>
+			<if test="drugCode != null and drugCode != ''">
+				DRUG_CODE = #{drugCode},
+			</if>
+			<if test="cadn != null and cadn != ''">
+				CADN = #{cadn},
+			</if>
+			<if test="approvalNo != null and approvalNo != ''">
+				APPROVAL_NO = #{approvalNo },
+			</if>
+			<if test="manufacturer != null and manufacturer != ''">
+				MANUFACTURER = #{manufacturer},
+			</if>
+			<if test="specification != null and specification != ''">
+				SPECIFICATION = #{specification},
+			</if>
+			<if test="usage != null and usage != ''">
+				`USAGE` = #{usage},
+			</if>
+			<if test="cp != null and cp != ''">
+				CP = #{cp},
+			</if>
+			<if test="ct != null ">
+				ET = #{ct},
+			</if>
+			<if test="ep != null and ep != ''">
+				EP = #{ep},
+			</if>
+			<if test="et != null ">
+				ET = #{et},
+			</if>
+		</trim>
+		WHERE ID = #{id}
+	</update>
+</mapper>

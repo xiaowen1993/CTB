@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ctb.mobile.rest.mapper.UserInfoMapper">
+  <resultMap id="BaseResultMap" type="com.ctb.mobile.rest.entity.UserInfo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="REF_UNION_ID" jdbcType="VARCHAR" property="refUnionId" />
+    <result column="HIS_OPEN_ID" jdbcType="VARCHAR" property="hisOpenId" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="SEX" jdbcType="INTEGER" property="sex" />
+    <result column="AGE" jdbcType="INTEGER" property="age" />
+    <result column="BIRTH" jdbcType="VARCHAR" property="birth" />
+    <result column="MOBILE" jdbcType="VARCHAR" property="mobile" />
+    <result column="ID_TYPE" jdbcType="INTEGER" property="idType" />
+    <result column="ID_NO" jdbcType="VARCHAR" property="idNo" />
+    <result column="ADDRESS" jdbcType="VARCHAR" property="address" />
+    <result column="CARD_TYPE" jdbcType="INTEGER" property="cardType" />
+    <result column="CARD_NO" jdbcType="VARCHAR" property="cardNo" />
+    <result column="GUARD_NAME" jdbcType="VARCHAR" property="guardName" />
+    <result column="GUARD_ID_TYPE" jdbcType="INTEGER" property="guardIdType" />
+    <result column="GUARD_ID_NO" jdbcType="VARCHAR" property="guardIdNo" />
+    <result column="GUARD_MOBILE" jdbcType="VARCHAR" property="guardMobile" />
+    <result column="HOSPITAL_ID" jdbcType="VARCHAR" property="hospitalId" />
+    <result column="HOSPITAL_CODE" jdbcType="VARCHAR" property="hospitalCode" />
+    <result column="HOSPITAL_NAME" jdbcType="VARCHAR" property="hospitalName" />
+    <result column="BRANCH_ID" jdbcType="VARCHAR" property="branchId" />
+    <result column="BRANCH_CODE" jdbcType="VARCHAR" property="branchCode" />
+    <result column="BRANCH_NAME" jdbcType="VARCHAR" property="branchName" />
+    <result column="PLATFORM_MODE" jdbcType="VARCHAR" property="platformMode" />
+  </resultMap>
+</mapper>

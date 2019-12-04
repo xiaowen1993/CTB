@@ -1,0 +1,20 @@
+spring:
+  profiles:
+    active: dev
+
+#redis config  
+  redis:
+    expireSeconds: 120
+    commandTimeout: 10000  #redis操作的超时时间
+    pool:
+      maxWaitMillis: 60000    #获取连接最大等待时间 ms  #default -1
+      maxActive: 5000 #最大连接数
+      maxIdle: 300 #最大空闲连接数
+      minIdle: 50 #最小空闲连接数
+      testOnBorrow: true
+      testWhileIdle: true
+      timeBetweenEvictionRunsMillis: 120000
+      minEvictableIdleTimeMillis: 60000
+      maxTotal: 10000
+      testOnReturn: false 
+      numTestsPerEvictionRun: 10

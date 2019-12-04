@@ -1,0 +1,26 @@
+DROP TABLE IF EXISTS `hospital`;
+CREATE TABLE `hospital` (
+  `ID` varchar(32) NOT NULL COMMENT 'ID',
+  `NAME` varchar(50) NOT NULL COMMENT '医院名称',
+  `CODE` varchar(50) NOT NULL COMMENT '医院代码',
+  `STATE` int(5) NOT NULL DEFAULT '0' COMMENT '0已签约1已上线...',
+  PRIMARY KEY (`ID`)
+);
+
+DROP TABLE IF EXISTS `hospital_platform_settings`;
+CREATE TABLE `hospital_platform_settings` (
+  `ID` varchar(32) NOT NULL COMMENT 'ID',
+  `HOSPITAL_ID` varchar(32) NOT NULL COMMENT '医院ID',
+  `PLATFORM_ID` varchar(32) NOT NULL COMMENT '平台ID',
+  `APP_ID` varchar(50) NOT NULL COMMENT '应用平台ID',
+  PRIMARY KEY (`ID`)
+);
+
+DROP TABLE IF EXISTS `platform`;
+CREATE TABLE `platform` (
+  `ID` varchar(32) NOT NULL COMMENT '编号',
+  `NAME` varchar(50) NOT NULL COMMENT '平台名字',
+  `CODE` int(2) NOT NULL COMMENT '平台代码',
+  `SHORT_NAME` varchar(20) NOT NULL COMMENT '平台代码简拼',
+  PRIMARY KEY (`ID`)
+);

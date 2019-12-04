@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ctb.resources.mapper.biz.DataPaidMzFeeDetailMapper">
+  <resultMap id="BaseResultMap" type="com.ctb.commons.entity.DataPaidMzFeeDetail">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="MZ_FEE_ID" jdbcType="VARCHAR" property="mzFeeId" />
+    <result column="ITEM_TIME" jdbcType="VARCHAR" property="itemTime" />
+    <result column="ITEM_ID" jdbcType="VARCHAR" property="itemId" />
+    <result column="ITEM_NAME" jdbcType="VARCHAR" property="itemName" />
+    <result column="ITEM_TYPE" jdbcType="VARCHAR" property="itemType" />
+    <result column="ITEM_UNIT" jdbcType="VARCHAR" property="itemUnit" />
+    <result column="ITEM_PRICE" jdbcType="VARCHAR" property="itemPrice" />
+    <result column="ITEM_SPEC" jdbcType="VARCHAR" property="itemSpec" />
+    <result column="ITEM_NUMBER" jdbcType="VARCHAR" property="itemNumber" />
+    <result column="ITEM_TOTAL_FEE" jdbcType="VARCHAR" property="itemTotalFee" />
+    <result column="DEPT_NAME" jdbcType="VARCHAR" property="deptName" />
+    <result column="DOCTOR_NAME" jdbcType="VARCHAR" property="doctorName" />
+    <result column="DOCTOR_CODE" jdbcType="VARCHAR" property="doctorCode" />
+    <result column="ITEM_STATUS" jdbcType="VARCHAR" property="itemStatus" />
+    <result column="DATA_PAY_FEE_ID" jdbcType="VARCHAR" property="dataPayFeeId" />
+  </resultMap>
+  
+  <sql id="All_Column">
+		ID, MZ_FEE_ID, ITEM_TIME, ITEM_ID, ITEM_NAME, ITEM_TYPE, ITEM_UNIT, ITEM_PRICE, ITEM_SPEC, ITEM_NUMBER, ITEM_TOTAL_FEE, 
+		DEPT_NAME, DOCTOR_NAME, DOCTOR_CODE, ITEM_STATUS, DATA_PAY_FEE_ID
+  </sql>
+  
+  <insert id="batchInsert" parameterType="java.util.List">
+		 INSERT INTO 
+		 DATA_PAY_MZ_FEE_DETAIL(<include refid="All_Column"></include>)
+		 VALUES
+	    <foreach collection="list" item="item" index="index" separator="," >  
+	        (
+	         #{item.id}, #{item.mzFeeId}, #{item.itemTime}, #{item.itemId}, #{item.itemName}, 
+	         #{item.itemType}, #{item.itemUnit}, #{item.itemPrice}, #{item.itemSpec}, #{item.itemNumber},
+	         #{item.itemTotalFee}, #{item.deptName}, #{item.doctorCode}, #{item.doctorCode}, #{item.itemStatus}, #{item.dataPayFeeId}
+	        )
+	    </foreach>  
+	</insert>
+  
+</mapper>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ctb.resources.mapper.biz.HospitalMapper">
+  <resultMap id="BaseResultMap" type="com.ctb.commons.entity.Hospital">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="CODE" jdbcType="VARCHAR" property="code" />
+    <result column="BRANCH_NAME" jdbcType="VARCHAR" property="branchName" />
+    <result column="BRANCH_CODE" jdbcType="VARCHAR" property="branchCode" />
+    <result column="CONTACT_NAME" jdbcType="VARCHAR" property="contactName" />
+    <result column="CONTACT_TEL" jdbcType="VARCHAR" property="contactTel" />
+    <result column="PHARMACY_BRANCH_ID" jdbcType="VARCHAR" property="pharmacyBranchId" />
+    <result column="STATUS" jdbcType="INTEGER" property="status" />
+    <result column="CP" jdbcType="VARCHAR" property="cp" />
+    <result column="CT" jdbcType="TIMESTAMP" property="ct" />
+    <result column="EP" jdbcType="VARCHAR" property="ep" />
+    <result column="ET" jdbcType="TIMESTAMP" property="et" />
+    <result column="APP_ID" jdbcType="VARCHAR" property="appId" />
+    <result column="APP_SECRET" jdbcType="VARCHAR" property="appSecret" />
+  </resultMap>
+  
+  <select id="getHospitals" resultMap="BaseResultMap">
+        SELECT * FROM sys_hospital
+    </select>
+    
+</mapper>

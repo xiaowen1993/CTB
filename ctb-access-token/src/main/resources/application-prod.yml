@@ -1,0 +1,9 @@
+# 生产配置
+spring:
+
+  redis:
+    host: 192.168.0.110
+    port: 6379
+    password: yixiang129
+    #cluster:
+      #nodes: 127.0.0.1:6380,127.0.0.1:6381

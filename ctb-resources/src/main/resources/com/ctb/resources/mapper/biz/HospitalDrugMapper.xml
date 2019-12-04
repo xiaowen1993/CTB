@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ctb.resources.mapper.biz.HospitalDrugMapper">
+  <resultMap id="BaseResultMap" type="com.ctb.commons.entity.HospitalDrug">
+  		<id column="ID" jdbcType="CHAR" property="id" />
+  		<result column="HOSPITAL_ID" jdbcType="CHAR" property="hospitalId" />
+  		<result column="DRUG_ID" jdbcType="CHAR" property="drugId" />
+  		<result column="HIS_DRUG_CODE" jdbcType="CHAR" property="hisDrugCode" />
+  		<result column="STATUS" jdbcType="CHAR" property="status" />
+  		<result column="TYPE" jdbcType="CHAR" property="type" />
+  		<result column="SPECIAL_DRUGS" jdbcType="CHAR" property="specialDrugs" />
+  		<result column="SPECIAL_STATUS" jdbcType="CHAR" property="specialStatus" />
+<!--   		<collection property="hospital" ofType="com.ctb.commons.entity.Hospital">
+  			<id column="NAME" jdbcType="VARCHAR" property="NAME"/>
+  		</collection>
+  		<collection property="drugList" ofType="com.ctb.commons.entity.DrugList">
+  			<id column="drugName" jdbcType="VARCHAR" property="drugName"/>
+  		</collection> -->
+  </resultMap>
+  
+    <select id="queryHospitalDurgLists" resultMap="BaseResultMap" parameterType="java.util.Map">
+		SELECT shd.ID,HOSPITAL_ID,DRUG_ID,HIS_DRUG_CODE,TYPE,shd.STATUS,SPECIAL_DRUGS,SPECIAL_STATUS,sh.NAME hospitalName,sdl.DRUG_NAME drugName
+		FROM 
+			sys_hospital_drug shd,sys_hospital sh,sys_drug_list sdl 		
+		WHERE 
+			sh.ID=shd.HOSPITAL_ID AND sdl.ID=shd.DRUG_ID 
+			
+			<!-- 条件查询 -->
+			<if test="hospitalName !=null and hospitalName != '' ">
+				AND sh.NAME LIKE '%${hospitalName}%' 
+			</if>
+			<if test="drugName != null and drugName !=''">
+				AND sdl.DRUG_NAME LIKE '%${drugName}%' 
+			</if>
+			<if test="hisDrugCode !=null and hisDrugCode !=''">
+				AND HIS_DRUG_CODE LIKE '%${hisDrugCode}%'
+			</if>
+			LIMIT #{page},#{pageSize}
+	</select>
+	
+	<select id="queryHospitalDurg" parameterType="java.util.Map"  resultType="java.lang.Integer">
+		SELECT count(1)
+		FROM 
+			sys_hospital_drug 
+		WHERE 	
+			1=1		
+			<!-- 条件查询 -->
+			<if test="hospitalId !=null and hospitalId != '' ">
+				AND HOSPITAL_ID = #{hospitalId} 
+			</if>
+			<if test="drugId != null and drugId !=''">
+				AND DRUG_ID = #{drugId} 
+			</if>
+			<if test="hisDrugCode !=null and hisDrugCode !=''">
+				AND HIS_DRUG_CODE = #{hisDrugCode}
+			</if>
+			<if test="type !=null and type !=''">
+				AND TYPE = #{type}
+			</if>
+			<if test="specialDrugs !=null and specialDrugs !=''">
+				 AND SPECIAL_DRUGS = #{specialDrugs}
+			</if>
+			<if test="specialStatus !=null and specialStatus !=''">
+				AND  SPECIAL_STATUS = #{specialStatus}
+			</if>
+	</select>
+	
+	<update id="updateHospitalDrugList" parameterType="com.ctb.commons.entity.HospitalDrug">
+		UPDATE sys_hospital_drug
+		<trim prefix="SET" suffixOverrides=",">
+			<if test="hospitalId !=null and hospitalId != '' ">
+				 HOSPITAL_ID = #{hospitalId},
+			</if>
+			<if test="drugId != null and drugId !=''">
+				 DRUG_ID = #{drugId},
+			</if>
+			<if test="hisDrugCode !=null and hisDrugCode !=''">
+				 HIS_DRUG_CODE = #{hisDrugCode},
+			</if>
+			<if test="status !=null and status !=''">
+				 STATUS = #{status}
+			</if>
+			<if test="type !=null and type !=''">
+				 TYPE = #{type},
+			</if>
+			<if test="specialDrugs !=null and specialDrugs !=''">
+				 SPECIAL_DRUGS = #{specialDrugs}
+			</if>
+			<if test="specialStatus !=null and specialStatus !=''">
+				 SPECIAL_STATUS = #{specialStatus}
+			</if>
+			WHERE ID = #{id}
+		</trim>
+	</update>
+	
+	<select id="queryHospitalDurgCount" parameterType="java.util.Map"  resultType="java.lang.Integer">
+		SELECT count(1)
+		FROM 
+			sys_hospital_drug shd,sys_hospital sh,sys_drug_list sdl 		
+		WHERE 
+			sh.ID=shd.HOSPITAL_ID AND sdl.ID=shd.DRUG_ID 	
+			<!-- 条件查询 -->
+			<if test="hospitalName !=null and hospitalName != '' ">
+				AND sh.NAME LIKE '%${hospitalName}%' 
+			</if>
+			<if test="drugName != null and drugName !=''">
+				AND sdl.DRUG_NAME LIKE '%${drugName}%' 
+			</if>
+			<if test="hisDrugCode !=null and hisDrugCode !=''">
+				AND HIS_DRUG_CODE LIKE '%${hisDrugCode}%'
+			</if>
+			<if test="type !=null and type !=''">
+				AND TYPE = #{type}
+			</if>
+			<if test="status !=null and status !=''">
+				AND shd.STATUS = #{status}
+			</if>
+			<if test="specialDrugs !=null and specialDrugs !=''">
+				 AND SPECIAL_DRUGS = #{specialDrugs}
+			</if>
+			<if test="specialStatus !=null and specialStatus !=''">
+				AND  SPECIAL_STATUS = #{specialStatus}
+			</if>
+	</select>
+	
+	<select id="selectHospitalDrugByRedis" resultType="java.util.HashMap">
+		SELECT shd.ID as id,HOSPITAL_ID as hospitalId,DRUG_ID as drugId,HIS_DRUG_CODE as hisDrugCode,TYPE as type,shd.STATUS as status,SPECIAL_DRUGS as specialDrugs,SPECIAL_STATUS as specialStatus,sh.NAME hospitalName,sdl.DRUG_NAME drugName
+		FROM 
+			sys_hospital_drug shd,sys_hospital sh,sys_drug_list sdl 		
+		WHERE 
+			sh.ID=shd.HOSPITAL_ID AND sdl.ID=shd.DRUG_ID 	
+			<!-- 条件查询 -->
+			<if test="hospitalId !=null and hospitalId != '' ">
+				AND shd.HOSPITAL_ID = #{hospitalId} 
+			</if>
+	</select>
+</mapper>

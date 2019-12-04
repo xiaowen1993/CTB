@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ctb.resources.mapper.biz.DrugBlackListMapper">
+  <resultMap id="BaseResultMap" type="com.ctb.commons.entity.DrugBlackList">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="HOSPITAL_ID" jdbcType="VARCHAR" property="hospitalId" />
+    <result column="DRUG_NAME" jdbcType="VARCHAR" property="drugName" />
+    <result column="DRUG_CODE" jdbcType="VARCHAR" property="drugCode" />
+    <result column="CADN" jdbcType="VARCHAR" property="cadn" />
+    <result column="APPROVAL_NO" jdbcType="VARCHAR" property="approvalNo" />
+    <result column="MANUFACTURER" jdbcType="VARCHAR" property="manufacturer" />
+    <result column="SPECIFICATION" jdbcType="VARCHAR" property="specification" />
+    <result column="HIS_DRUG_CODE" jdbcType="VARCHAR" property="hisDrugCode" />
+    <result column="USAGE" jdbcType="VARCHAR" property="usage" />
+    <result column="CP" jdbcType="VARCHAR" property="cp" />
+    <result column="CT" jdbcType="TIMESTAMP" property="ct" />
+    <result column="EP" jdbcType="VARCHAR" property="ep" />
+    <result column="ET" jdbcType="TIMESTAMP" property="et" />
+  </resultMap>
+</mapper>
